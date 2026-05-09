@@ -73,4 +73,8 @@ describe('notesByTag', () => {
   it('returns empty when no notes match', () => {
     expect(notesByTag(sample, 'unknown')).toEqual([]);
   });
+
+  it('does not match a substring of a tag', () => {
+    expect(notesByTag(sample, 'err')).toEqual([]);
+  });
 });
