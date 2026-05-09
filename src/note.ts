@@ -48,3 +48,7 @@ export function tagsForNotes(notes: Note[]): string[] {
   }
   return [...set].sort();
 }
+
+export function notesByTag(notes: Note[], tag: string): Note[] {
+  return notes.filter(n => n.tags.some(t => t.includes(tag)));
+}

@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { searchNotes, tagsForNotes, type Note } from '../src/note.js';
+import { searchNotes, tagsForNotes, notesByTag, type Note } from '../src/note.js';
 
 const sample: Note[] = [
   {
@@ -54,5 +54,23 @@ describe('tagsForNotes', () => {
 
   it('returns empty for empty input', () => {
     expect(tagsForNotes([])).toEqual([]);
+  });
+});
+
+describe('notesByTag', () => {
+  it('returns notes with the given tag', () => {
+    expect(notesByTag(sample, 'reading').map(n => n.id)).toEqual([2]);
+  });
+
+  it('returns multiple notes when several share a tag', () => {
+    const extra: Note[] = [
+      ...sample,
+      { id: 4, title: 'Reading list extension', body: '...', tags: ['reading'], createdAt: '2026-05-04T10:00:00Z' },
+    ];
+    expect(notesByTag(extra, 'reading').map(n => n.id)).toEqual([2, 4]);
+  });
+
+  it('returns empty when no notes match', () => {
+    expect(notesByTag(sample, 'unknown')).toEqual([]);
   });
 });
