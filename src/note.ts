@@ -50,5 +50,5 @@ export function tagsForNotes(notes: Note[]): string[] {
 }
 
 export function notesByTag(notes: Note[], tag: string): Note[] {
-  return notes.filter(n => n.tags.some(t => t.includes(tag)));
+  return notes.filter(n => n.tags.some(t => t === tag));
 }
