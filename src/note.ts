@@ -33,7 +33,7 @@ export function deleteNote(id: number): boolean {
 }
 
 export function searchNotes(notes: Note[], query: string): Note[] {
-  if (query.length <= 1) return [];
+  if (query.length < 1) return [];
   const q = query.toLowerCase();
   return notes.filter(n =>
     n.title.toLowerCase().includes(q) ||

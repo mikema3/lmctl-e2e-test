@@ -41,6 +41,10 @@ describe('searchNotes', () => {
   it('returns empty array when no notes match', () => {
     expect(searchNotes(sample, 'nonsense')).toEqual([]);
   });
+
+  it('matches single-character queries', () => {
+    expect(searchNotes(sample, 'e').map(n => n.id)).toEqual([1, 2, 3]);
+  });
 });
 
 describe('tagsForNotes', () => {
