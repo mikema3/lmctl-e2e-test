@@ -1,0 +1,14 @@
+{
+  "name": "tinynote",
+  "version": "0.1.0",
+  "description": "A tiny in-memory notes library: add, search, tag, and delete notes.",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "test": "vitest run"
+  },
+  "devDependencies": {
+    "typescript": "^5.4.0",
+    "vitest": "^1.6.0"
+  }
+}
